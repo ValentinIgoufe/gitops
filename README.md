@@ -57,4 +57,7 @@
 ## .\tools\minikube.exe kubectl -- exec -it guestbook-ui-f8bf55fbf-xpnl8 -n mon-app -- /bin/sh -c "while true; do :; done"
 
 # Ingress (Reverse Proxy)
-##
+## ingress.yaml
+
+# Refresh cluster
+### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-ui -n mon-app
