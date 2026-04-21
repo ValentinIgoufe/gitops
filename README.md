@@ -58,6 +58,10 @@
 
 # Ingress (Reverse Proxy)
 ## ingress.yaml
+### .\tools\minikube.exe kubectl -- port-forward -n ingress-nginx service/ingress-nginx-controller 8080:80
+
+# Pour aller plus loin
+## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
 
 # Refresh cluster
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-ui -n mon-app

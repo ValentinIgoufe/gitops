@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: apps/guestbook
+    path: apps/guestbook/frontend
   destination:
     server: https://kubernetes.default.svc
-    namespace: mon-app
+    namespace: guestbook-frontend
   syncPolicy:
     automated:
       prune: true
