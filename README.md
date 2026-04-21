@@ -60,6 +60,9 @@
 ## ingress.yaml
 ### .\tools\minikube.exe kubectl -- port-forward -n ingress-nginx service/ingress-nginx-controller 8080:80
 
+# Least Privilege
+### deployment.yaml
+
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
 

@@ -19,6 +19,17 @@ spec:
           name: guestbook-backend
           ports:
             - containerPort: 80
+          # Least Privilege
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            readOnlyRootFilesystem: true
+            runAsUser: 1000
+            runAsNonRoot: true
+          automountServiceAccountToken: false
+          # Resources
           resources:
             requests:
               cpu: 100m
