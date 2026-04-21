@@ -47,3 +47,5 @@
 ### .\minikube.exe kubectl -- config set-context --current --namespace=argocd 
 ### .\minikube.exe kubectl -- apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ### .\minikube.exe kubectl -- apply -f guestbook-app.yaml
+
+# HPA
