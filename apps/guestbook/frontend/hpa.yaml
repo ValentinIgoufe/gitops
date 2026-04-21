@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: guestbook-hpa
+  name: guestbook-frontend-hpa
   namespace: guestbook-frontend
 spec:
   scaleTargetRef:
