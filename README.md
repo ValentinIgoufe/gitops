@@ -49,3 +49,9 @@
 ### .\minikube.exe kubectl -- apply -f guestbook-app.yaml
 
 # HPA
+### hpa.yaml
+### .\minikube.exe addons enable metrics-server
+### .\minikube.exe kubectl -- top pods -n mon-app
+
+# Stress Tests pour HPA 
+#.\minikube.exe kubectl -- run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -n mon-app -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://guestbook-ui; done"
