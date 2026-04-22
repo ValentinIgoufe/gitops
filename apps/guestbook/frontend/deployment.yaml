@@ -15,7 +15,7 @@ spec:
         app: guestbook-frontend
     spec:
       containers:
-        - image: gcr.io/google-samples/gb-frontend:v5
+        - image: valouche190705/guestbook:v0.0.3
           name: guestbook-frontend
           ports:
             - containerPort: 8080
