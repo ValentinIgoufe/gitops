@@ -57,6 +57,7 @@
 ## .\tools\minikube.exe kubectl -- exec -it guestbook-ui-f8bf55fbf-xpnl8 -n mon-app -- /bin/sh -c "while true; do :; done"
 
 # Ingress (Reverse Proxy)
+## addons enable ingress
 ## ingress.yaml
 ### .\tools\minikube.exe kubectl -- port-forward -n ingress-nginx service/ingress-nginx-controller 8080:80
 
@@ -64,7 +65,11 @@
 ### deployment.yaml
 
 # Network Policies
-## start avec calico + add
+## start avec calico 
+### tester les règles : kubectl run test-terminal --rm -it --image=alpine -- sh 
+### + wget -qO- --timeout=2 http://guestbook-backend-service.guestbook-backend.svc.cluster.local
+### + wget -qO- --timeout=2 http://guestbook-frontend-service.guestbook-frontend.svc.cluster.local
+### get pods -n kube-system | findstr calico
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
