@@ -1,0 +1,4 @@
+replicaCount: 1
+image: valouche190705/guestbook:v0.0.3
+namespace: guestbook-backend
+appName: guestbook-backend

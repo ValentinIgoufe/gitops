@@ -71,6 +71,10 @@
 ### + wget -qO- --timeout=2 http://guestbook-frontend-service.guestbook-frontend.svc.cluster.local
 ### get pods -n kube-system | findstr calico
 
+# Helm
+## changement de structure
+### .\tools\helm.exe install guestbook .\guestbook-chart 
+
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
 ## Une fois l'img push sur un registry -> on modifie le tag de l'img dans le repo GitOps pour trigger ArgoCD donc pas de :latest

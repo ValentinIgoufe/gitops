@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .Release.Name }}-frontend-egress-allow-dns
+  namespace: {{ .Values.frontend.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: guestbook-frontend
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector: {}
+    ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53
