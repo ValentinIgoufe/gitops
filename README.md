@@ -5,7 +5,7 @@
 > PPK = Initiation à k8s, ArgoCD et Terraform.
 
 ## Installation via Docker
-### ./minikube start --driver=docker
+### ./minikube start --driver=docker --cni=calico --nodes 3
 
 # Control Plane OK ?
 ### ./minikube.exe kubectl -- get nodes
@@ -62,6 +62,9 @@
 
 # Least Privilege
 ### deployment.yaml
+
+# Network Policies
+## start avec calico + add
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
