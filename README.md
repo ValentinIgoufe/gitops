@@ -65,6 +65,7 @@
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
+## Une fois l'img push sur un registry -> on modifie le tag de l'img dans le repo GitOps pour trigger ArgoCD donc pas de :latest
 
 # Refresh cluster
-### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-ui -n mon-app
+### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend     
