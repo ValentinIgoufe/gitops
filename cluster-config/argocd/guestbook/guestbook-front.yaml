@@ -11,6 +11,7 @@ spec:
     path: apps/guestbook/frontend
     directory:
       recurse: true
+      jsonnet: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook-frontend
