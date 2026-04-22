@@ -33,7 +33,7 @@ spec:
               drop:
                 - ALL
             readOnlyRootFilesystem: true
-            #runAsUser: 1000
+            runAsUser: 101
             runAsNonRoot: true
           automountServiceAccountToken: false
           # Resources
