@@ -23,19 +23,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
-      - Replace=true
-      - FailOnSharedResource=false
-      - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: admissionregistration.k8s.io
-      kind: MutatingWebhookConfiguration
-      jqPathExpressions:
-        - '.webhooks[]?.clientConfig.caBundle'
-    - group: admissionregistration.k8s.io
-      kind: ValidatingWebhookConfiguration
-      jqPathExpressions:
-        - '.webhooks[]?.clientConfig.caBundle'
-    - group: batch
-      kind: Job
-      jqPathExpressions:
-        - '.spec.template.spec.containers[]?.resources'

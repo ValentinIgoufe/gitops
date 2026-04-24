@@ -94,7 +94,7 @@
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
 
 # Admin ArgoCD
-### Jq7Tx3MHX3ZYw-QO
+### HnXltM3FaHSq7ikG
 
 kubectl delete clusterrole monitoring-stack-prometheu-admission
 kubectl delete clusterrolebinding monitoring-stack-prometheu-admission
