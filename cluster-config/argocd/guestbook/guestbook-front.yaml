@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: guestbook-chart/frontend
+    path: charts/frontend
     helm:
       valueFiles:
         - values.yaml
