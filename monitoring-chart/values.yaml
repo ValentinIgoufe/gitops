@@ -7,6 +7,7 @@ global:
 prometheusStack:
   enabled: true
   namespaceOverride: monitoring
+  fullnameOverride: monitoring-stack
   
   grafana:
     enabled: true

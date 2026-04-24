@@ -95,3 +95,8 @@
 
 # Admin ArgoCD
 ### Jq7Tx3MHX3ZYw-QO
+
+kubectl delete clusterrole monitoring-stack-prometheu-admission
+kubectl delete clusterrolebinding monitoring-stack-prometheu-admission
+kubectl delete role monitoring-stack-prometheu-admission -n monitoring
+kubectl delete rolebinding monitoring-stack-prometheu-admission -n monitoring
