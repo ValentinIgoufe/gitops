@@ -15,11 +15,26 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
+  # https://oneuptime.com/blog/post/2026-02-26-deploy-kube-prometheus-stack-argocd/view
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
       - Replace=true
-      - FailOnSharedResource=false
+      - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      jqPathExpressions:
+        - '.webhooks[]?.clientConfig.caBundle'
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      jqPathExpressions:
+        - '.webhooks[]?.clientConfig.caBundle'
+    - group: batch
+      kind: Job
+      jqPathExpressions:
+        - '.spec.template.spec.containers[]?.resources'
