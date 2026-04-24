@@ -1,3 +1,6 @@
+{{- $left := "{{" -}}
+{{- $right := "}}" -}}
+
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
@@ -15,10 +18,8 @@ spec:
           labels:
             severity: warning
           annotations:
-            {{- raw }}
-            summary: "Pod {{ $labels.pod }} redémarre fréquemment"
-            description: "Le pod {{ $labels.pod }} dans {{ $labels.namespace }} a redémarré {{ $value }} fois."
-            {{- endraw }}
+            summary: "Pod {{ $left }} $labels.pod {{ $right }} redémarre fréquemment"
+            description: "Le pod {{ $left }} $labels.pod {{ $right }} dans {{ $left }} $labels.namespace {{ $right }} a redémarré {{ $left }} $value {{ $right }} fois."
         
         - alert: HighMemoryUsage
           expr: (container_memory_usage_bytes / container_spec_memory_limit_bytes) > 0.9
@@ -26,7 +27,5 @@ spec:
           labels:
             severity: critical
           annotations:
-            {{- raw }}
             summary: "Utilisation mémoire critique"
-            description: "Le conteneur {{ $labels.container }} utilise plus de 90% de sa limite mémoire."
-            {{- endraw }}
+            description: "Le conteneur {{ $left }} $labels.container {{ $right }} utilise plus de 90% de sa limite mémoire."
