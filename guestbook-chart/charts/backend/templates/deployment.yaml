@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}-deployment
+  name: {{ .Release.Name }}-{{ .Values.appName }}-deployment
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: {{ .Values.appName }}
+      app: {{ .Release.Name }}-{{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
+        app: {{ .Release.Name }}-{{ .Values.appName }}
     spec:
       automountServiceAccountToken: false
       containers:
         - image: {{ .Values.image }}
-          name: {{ .Values.appName }}
+          name: {{ .Release.Name }}-{{ .Values.appName }}
           ports:
             - containerPort: 8080
           volumeMounts:

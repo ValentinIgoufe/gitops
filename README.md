@@ -73,7 +73,7 @@
 
 # Helm
 ## changement de structure
-### .\tools\helm.exe install guestbook .\guestbook-chart 
+### .\tools\minikube.exe kubectl -- apply -f .\cluster-config\argocd\guestbook\guestbook-helm.yaml
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods

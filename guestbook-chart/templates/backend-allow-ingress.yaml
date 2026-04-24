@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: guestbook-backend
+      app: {{ .Release.Name }}-guestbook-backend
   policyTypes:
   - Ingress
   ingress:
