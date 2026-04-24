@@ -1,4 +1,8 @@
 # guestbook-chart/values.yaml
+# Monitoring Stack Values
+global:
+  monitoring:
+    namespace: monitoring
 # Application configuration
 frontend: 
   minReplicaCount: 1
