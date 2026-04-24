@@ -13,11 +13,8 @@ backend:
   appName: guestbook-backend
 
 # Monitoring configuration
-monitoring:
-  namespace: guestbook-monitoring
-
 prometheus-stack:
-  namespace: {{ .Values.monitoring.namespace }}
+  namespace: guestbook-monitoring
   grafana:
     enabled: true
     adminPassword: "admin" 
