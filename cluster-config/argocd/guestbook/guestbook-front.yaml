@@ -14,7 +14,7 @@ spec:
         - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: guestbook-frontend
   # https://oneuptime.com/blog/post/2026-02-26-deploy-kube-prometheus-stack-argocd/view
   syncPolicy:
     automated:
