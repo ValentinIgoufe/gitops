@@ -44,6 +44,12 @@ spec:
             limits:
               cpu: 200m
               memory: 128Mi
+        - name: nginx-exporter
+          image: nginx/nginx-prometheus-exporter:latest
+          args:
+            - -nginx.scrape-uri=http://127.0.0.1:8080/nginx_status
+          ports:
+            - containerPort: 9113
       volumes:
         - name: cache-volume
           emptyDir: {}

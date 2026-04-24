@@ -1,5 +1,5 @@
 # guestbook-chart/values.yaml
-
+# Application configuration
 frontend: 
   replicaCount: 1
   image: valouche190705/guestbook:v0.0.3
@@ -11,3 +11,47 @@ backend:
   image: valouche190705/guestbook:v0.0.3
   namespace: guestbook-backend
   appName: guestbook-backend
+
+# Monitoring configuration
+monitoring:
+  namespace: guestbook-monitoring
+
+prometheus-stack:
+  namespace: {{ .Values.monitoring.namespace }}
+  grafana:
+    enabled: true
+    adminPassword: "admin" 
+    ingress:
+      enabled: true
+      hosts:
+        - grafana.127.0.0.1.nip.io
+  prometheus:
+    enabled: true
+    prometheusSpec:
+      retention: "7d"
+      retentionSize: "45GB"
+      requests:
+        memory: "1Gi"
+        cpu: "500m"
+      limits:
+        memory: "2Gi"
+        cpu: "1"
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+  alertmanager:
+    enabled: true
+    alertmanagerSpec:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi

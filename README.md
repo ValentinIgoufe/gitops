@@ -72,12 +72,19 @@
 ### get pods -n kube-system | findstr calico
 
 # Helm
-## changement de structure
+## changement de structure -> Chart Umbrella 
 ### .\tools\minikube.exe kubectl -- apply -f .\cluster-config\argocd\guestbook\guestbook-helm.yaml
+
+# Monitoring
+## Prometheus & Grafana & AlertManager
+### Add dependancies in Chart.yaml and some configs.yaml in the parent
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
 ## Une fois l'img push sur un registry -> on modifie le tag de l'img dans le repo GitOps pour trigger ArgoCD donc pas de :latest
 
 # Refresh cluster
-### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend     
+### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
+
+# Admin ArgoCD
+### d-XpIu7e3MfgHTy3
