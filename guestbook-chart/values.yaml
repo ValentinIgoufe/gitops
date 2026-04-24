@@ -1,13 +1,15 @@
 # guestbook-chart/values.yaml
 # Application configuration
 frontend: 
-  replicaCount: 1
+  minReplicaCount: 1
+  maxReplicaCount: 10
   image: valouche190705/guestbook:v0.0.3
   namespace: guestbook-frontend
   appName: guestbook-frontend
 
 backend:
-  replicaCount: 1
+  minReplicaCount: 1
+  maxReplicaCount: 10
   image: valouche190705/guestbook:v0.0.3
   namespace: guestbook-backend
   appName: guestbook-backend

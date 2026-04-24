@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-{{ .Values.appName }}-deployment
   namespace: {{ .Values.namespace }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  #replicas: {{ .Values.replicaCount }}
   revisionHistoryLimit: 3
   selector:
     matchLabels:
