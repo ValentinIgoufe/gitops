@@ -1,8 +1,4 @@
 # guestbook-chart/values.yaml
-# Global values 
-global:
-  monitoring:
-    namespace: guestbook-monitoring
 # Application configuration
 frontend: 
   replicaCount: 1
@@ -15,52 +11,3 @@ backend:
   image: valouche190705/guestbook:v0.0.3
   namespace: guestbook-backend
   appName: guestbook-backend
-
-# Monitoring configuration - kube-prometheus-stack
-prometheusStack:
-  enabled: true
-  namespaceOverride: guestbook-monitoring
-  grafana:
-    enabled: true
-    adminPassword: "admin"
-    namespaceOverride: guestbook-monitoring
-    ingress:
-      enabled: true
-      ingressClassName: nginx
-      hosts:
-        - grafana.127.0.0.1.nip.io
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/rewrite-target: /
-  prometheus:
-    enabled: true
-    prometheusSpec:
-      namespaceSelector: {}
-      retention: "7d"
-      retentionSize: "45GB"
-      resources:
-        requests:
-          memory: "1Gi"
-          cpu: "500m"
-        limits:
-          memory: "2Gi"
-          cpu: "1"
-      storageSpec:
-        volumeClaimTemplate:
-          spec:
-            accessModes: ["ReadWriteOnce"]
-            resources:
-              requests:
-                storage: 50Gi
-      serviceMonitorSelectorNilUsesHelmValues: false
-      podMonitorSelectorNilUsesHelmValues: false
-  alertmanager:
-    enabled: true
-    alertmanagerSpec:
-      storage:
-        volumeClaimTemplate:
-          spec:
-            accessModes: ["ReadWriteOnce"]
-            resources:
-              requests:
-                storage: 10Gi
