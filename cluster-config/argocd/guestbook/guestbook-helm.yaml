@@ -24,6 +24,7 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
       - Replace=true
+      - FailOnSharedResource=false
       - RespectIgnoreDifferences=true
   ignoreDifferences:
     - group: admissionregistration.k8s.io
