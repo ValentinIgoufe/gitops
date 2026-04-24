@@ -94,7 +94,10 @@
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
 
 # Admin ArgoCD
-### HnXltM3FaHSq7ikG
+### SlplTErwCcbf1XTb
+
+.\tools\minikube.exe kubectl -- patch rolebinding monitoring-stack-prometheu-admission -p '{\"metadata\":{\"finalizers\":[]}}' --type=merge -n monitoring
+.\tools\minikube.exe kubectl -- delete rolebinding monitoring-stack-prometheu-admission --grace-period=0 --force -n monitoring           
 
 kubectl delete clusterrole monitoring-stack-prometheu-admission
 kubectl delete clusterrolebinding monitoring-stack-prometheu-admission

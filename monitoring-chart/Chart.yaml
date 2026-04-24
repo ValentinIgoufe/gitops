@@ -11,5 +11,5 @@ dependencies:
   - name: kube-prometheus-stack
     version: "84.0.0" 
     repository: "https://prometheus-community.github.io/helm-charts"
-    alias: prometheusStack
-    condition: prometheusStack.enabled
+    alias: prometheusstack
+    condition: prometheusstack.enabled
