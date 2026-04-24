@@ -24,7 +24,8 @@ version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
-  - name: prometheusStack
+  - name: kube-prometheus-stack
     version: "84.0.0" 
     repository: "https://prometheus-community.github.io/helm-charts"
+    alias: prometheusStack
     condition: prometheusStack.enabled
