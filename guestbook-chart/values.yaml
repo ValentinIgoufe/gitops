@@ -13,7 +13,7 @@ backend:
   appName: guestbook-backend
 
 # Monitoring configuration
-prometheus-stack:
+prometheusStack:
   namespace: guestbook-monitoring
   grafana:
     enabled: true

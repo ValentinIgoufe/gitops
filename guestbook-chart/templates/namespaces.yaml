@@ -17,7 +17,7 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: {{ index  .Values "prometheus-stack" "namespace" }}
+  name: {{ .Values.prometheusStack.namespace }}
   annotations:
     "helm.sh/hook": pre-install
     "helm.sh/hook-weight": "-10"

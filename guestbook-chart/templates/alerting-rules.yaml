@@ -5,7 +5,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: kubernetes-alerts
-  namespace: {{ index  .Values "prometheus-stack" "namespace" }}
+  namespace: {{ .Values.prometheusStack.namespace }}
   labels:
     release: {{ .Release.Name }}
 spec:
