@@ -78,6 +78,13 @@
 # Monitoring
 ## Prometheus & Grafana & AlertManager
 ### Add dependancies in Chart.yaml and some configs.yaml in the parent
+### Important: Use these syncPolicy options to avoid blocking with admission webhooks:
+### - Replace=true (not ServerSideApply)
+### - FailOnSharedResource=false
+### - prunePropagationPolicy: foreground
+### If stuck with namespace Terminating: delete webhooks first before deleting Application
+### kubectl delete validatingwebhookconfigurations -l app.kubernetes.io/name=prometheus
+### kubectl delete mutatingwebhookconfigurations -l app.kubernetes.io/name=prometheus
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
