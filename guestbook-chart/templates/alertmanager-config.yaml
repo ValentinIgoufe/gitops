@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: alertmanager-prometheus-kube-prometheus-alertmanager
-  namespace: {{ .Values.prometheusStack.namespace }}
+  namespace: {{ .Values.global.monitoring.namespace }}
 type: Opaque
 stringData:
   alertmanager.yaml: |
