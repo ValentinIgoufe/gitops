@@ -94,4 +94,4 @@
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
 
 # Admin ArgoCD
-### ODhCPVurGbSme59D
+### Jq7Tx3MHX3ZYw-QO
