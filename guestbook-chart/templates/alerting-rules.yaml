@@ -15,8 +15,10 @@ spec:
           labels:
             severity: warning
           annotations:
+            {{- raw }}
             summary: "Pod {{ $labels.pod }} redémarre fréquemment"
             description: "Le pod {{ $labels.pod }} dans {{ $labels.namespace }} a redémarré {{ $value }} fois."
+            {{- endraw }}
         
         - alert: HighMemoryUsage
           expr: (container_memory_usage_bytes / container_spec_memory_limit_bytes) > 0.9
@@ -24,5 +26,7 @@ spec:
           labels:
             severity: critical
           annotations:
+            {{- raw }}
             summary: "Utilisation mémoire critique"
             description: "Le conteneur {{ $labels.container }} utilise plus de 90% de sa limite mémoire."
+            {{- endraw }}
