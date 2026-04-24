@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: monitoring-chart
+    path: charts/monitoring
     helm:
       valueFiles:
         - values.yaml

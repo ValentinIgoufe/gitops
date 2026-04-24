@@ -8,14 +8,18 @@ spec:
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: apps/guestbook/backend
-    directory:
-      recurse: true
-      jsonnet: {}
+    path: guestbook-chart/backend
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
-    server: https://kubernetes.default.svc
-    namespace: guestbook-backend
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  # https://oneuptime.com/blog/post/2026-02-26-deploy-kube-prometheus-stack-argocd/view
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

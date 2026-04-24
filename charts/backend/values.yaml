@@ -1,0 +1,11 @@
+# guestbook-chart/values.yaml
+# Monitoring Stack Values
+global:
+  monitoring:
+    namespace: monitoring
+# Application configuration
+minReplicaCount: 1
+maxReplicaCount: 10
+image: valouche190705/guestbook:v0.0.3
+namespace: guestbook-backend
+appName: guestbook-backend
