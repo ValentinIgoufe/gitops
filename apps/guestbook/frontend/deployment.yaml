@@ -16,7 +16,7 @@ spec:
     spec:
       automountServiceAccountToken: false
       containers:
-        - image: valouche190705/guestbook:v0.0.3
+        - image: valouche190705/guestbook:v0.0.4
           name: guestbook-frontend
           ports:
             - containerPort: 8080
