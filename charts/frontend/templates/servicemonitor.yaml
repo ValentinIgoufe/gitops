@@ -2,13 +2,13 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ .Release.Name }}-{{ .Values.appName }}-monitor
-  namespace: {{ .Values.global.monitoring.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
     release: {{ .Release.Name }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-{{ .Values.appName }}
+      app: {{ .Release.Name }}-{{ .Values.appName }}-service
   namespaceSelector:
     matchNames:
       - {{ .Values.namespace }}

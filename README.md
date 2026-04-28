@@ -109,6 +109,10 @@ kubectl delete rolebinding monitoring-stack-prometheu-admission -n monitoring
 # REMETTRE LES NETWORK POLICIES ET LES ALERTES PROMETHEUS
 #
 
+
+# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/prometheus-operated 9090:9090
+# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/monitoring-stack-grafana 3000:80
+
 Après Prometheus/Grafana et EKS/Terraform, la suite logique ce serait :
 Court terme (dans ta lancée)
 
