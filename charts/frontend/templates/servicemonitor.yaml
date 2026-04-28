@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      monitoring: {{ .Values.global.monitoring.labels.monitoring | default "false" }}
+      monitoring: {{ .Values.global.monitoring.labels.monitoring | default "false" | quote }}
   namespaceSelector:
     matchNames:
       - {{ .Values.namespace }}
