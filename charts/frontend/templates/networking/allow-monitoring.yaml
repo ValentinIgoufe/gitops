@@ -2,18 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-monitoring-to-frontend
-  namespace: guestbook-frontend
+  namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: nginx-exporter
+      app: {{ .Release.Name }}-{{ .Values.appName }}
   policyTypes:
   - Ingress
   ingress:
   - from:
     - namespaceSelector:
         matchLabels:
-          kubernetes.io/metadata.name: monitoring
+          kubernetes.io/metadata.name: {{ .Values.global.labels.monitoring | default "monitoring" | quote }}
     ports:
     - protocol: TCP
       port: 9113

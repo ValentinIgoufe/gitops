@@ -2,11 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-ingress-to-frontend
-  namespace: guestbook-frontend
+  namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: guestbook-frontend
+      app: {{ .Release.Name }}-{{ .Values.appName }}
   policyTypes:
   - Ingress
   ingress:
