@@ -4,7 +4,7 @@ global:
   monitoring:
     namespace: monitoring
     labels:
-      monitoring: "true"
+      monitoring: "monitoring"
 # Application configuration
 minReplicaCount: 1
 maxReplicaCount: 10
