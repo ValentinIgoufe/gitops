@@ -85,6 +85,11 @@
 ### If stuck with namespace Terminating: delete webhooks first before deleting Application
 ### kubectl delete validatingwebhookconfigurations -l app.kubernetes.io/name=prometheus
 ### kubectl delete mutatingwebhookconfigurations -l app.kubernetes.io/name=prometheus
+# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/prometheus-operated 9090:9090
+# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/monitoring-stack-grafana 3000:80
+# .\tools\minikube.exe kubectl -- port-forward service/monitoring-stack-grafana -n monitoring 3000:80
+
+# Right Sizing VPA
 
 # Pour aller plus loin
 ## Ajouter un Load Balancer par dessous l'Ingress : user -> LB (cloud provider) -> Ingress -> Service -> Pods
@@ -96,23 +101,6 @@
 # Admin ArgoCD
 ### SlplTErwCcbf1XTb
 
-.\tools\minikube.exe kubectl -- patch rolebinding monitoring-stack-prometheu-admission -p '{\"metadata\":{\"finalizers\":[]}}' --type=merge -n monitoring
-.\tools\minikube.exe kubectl -- delete rolebinding monitoring-stack-prometheu-admission --grace-period=0 --force -n monitoring           
-
-kubectl delete clusterrole monitoring-stack-prometheu-admission
-kubectl delete clusterrolebinding monitoring-stack-prometheu-admission
-kubectl delete role monitoring-stack-prometheu-admission -n monitoring
-kubectl delete rolebinding monitoring-stack-prometheu-admission -n monitoring
-
-
-#
-# REMETTRE LES NETWORK POLICIES ET LES ALERTES PROMETHEUS
-#
-
-
-# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/prometheus-operated 9090:9090
-# .\tools\minikube.exe kubectl -- -n monitoring port-forward svc/monitoring-stack-grafana 3000:80
-
 Après Prometheus/Grafana et EKS/Terraform, la suite logique ce serait :
 Court terme (dans ta lancée)
 
@@ -123,3 +111,4 @@ Moyen terme
 
 Multi-environnements — gérer dev/staging/prod avec Helm values différentes ou Kustomize, c'est ce que t'as en prod en entreprise.
 Service Mesh — Istio ou Linkerd, mTLS entre les pods, observabilité fine. C'est plus avancé mais ça impressionne.
+Right Sizing VPA & Goldilocks
