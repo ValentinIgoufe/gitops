@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}-{{ .Values.appName }}-service
   namespace: {{ .Values.namespace }}
   labels:
-    monitoring: {{ .Values.global.monitoring.labels.monitoring | default "false" | quote }}
+    monitoring: {{ .Values.global.monitoring.labels.monitoring }}
 spec:
   ports:
   - name: http
