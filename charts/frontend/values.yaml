@@ -8,6 +8,6 @@ global:
 # Application configuration
 minReplicaCount: 1
 maxReplicaCount: 10
-image: valouche190705/guestbook:v0.0.3
+image: valouche190705/guestbook:v0.0.6
 namespace: guestbook-frontend
 appName: guestbook-frontend
