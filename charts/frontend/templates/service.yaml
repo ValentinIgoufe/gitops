@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-{{ .Values.appName }}-service
   namespace: {{ .Values.namespace }}
+  labels:
+    monitoring: {{ .Values.global.monitoring.labels.monitoring | default "false" }}
 spec:
   ports:
   - name: http

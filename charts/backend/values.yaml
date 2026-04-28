@@ -3,6 +3,8 @@
 global:
   monitoring:
     namespace: monitoring
+    labels:
+      monitoring: "true"
 # Application configuration
 minReplicaCount: 1
 maxReplicaCount: 10
