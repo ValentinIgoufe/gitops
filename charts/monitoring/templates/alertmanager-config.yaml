@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alertmanager-prometheus-kube-prometheus-alertmanager
+  namespace: {{ .Values.global.monitoring.namespace }}
+type: Opaque
+stringData:
+  alertmanager.yaml: |
+    global:
+      resolve_timeout: 5m
+      slack_api_url: 'https://hooks.slack.com/services/VOTRE/WEBHOOK/URL'
+    
+    route:
+      group_by: ['alertname', 'severity']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 4h
+      receiver: 'slack-notifications'
+      routes:
+        - match:
+            severity: critical
+          receiver: 'slack-critical'
+    
+    receivers:
+      - name: 'slack-notifications'
+        slack_configs:
+          - channel: '#monitoring'
+            send_resolved: true
+      - name: 'slack-critical'
+        slack_configs:
+          - channel: '#alerts-critical'
+            send_resolved: true

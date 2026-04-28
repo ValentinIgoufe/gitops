@@ -103,3 +103,19 @@ kubectl delete clusterrole monitoring-stack-prometheu-admission
 kubectl delete clusterrolebinding monitoring-stack-prometheu-admission
 kubectl delete role monitoring-stack-prometheu-admission -n monitoring
 kubectl delete rolebinding monitoring-stack-prometheu-admission -n monitoring
+
+
+#
+# REMETTRE LES NETWORK POLICIES ET LES ALERTES PROMETHEUS
+#
+
+Après Prometheus/Grafana et EKS/Terraform, la suite logique ce serait :
+Court terme (dans ta lancée)
+
+RBAC — contrôle d'accès dans le cluster, qui peut faire quoi sur quelles ressources. C'est le least privilege appliqué aux utilisateurs/serviceaccounts, tu vas retrouver tes petits.
+Secrets management — là t'as probablement des secrets en clair dans tes yamls ou des env vars. Intégrer Sealed Secrets ou External Secrets Operator avec un vault, c'est un vrai sujet en entreprise et ça boucle bien avec ton background sécu.
+
+Moyen terme
+
+Multi-environnements — gérer dev/staging/prod avec Helm values différentes ou Kustomize, c'est ce que t'as en prod en entreprise.
+Service Mesh — Istio ou Linkerd, mTLS entre les pods, observabilité fine. C'est plus avancé mais ça impressionne.

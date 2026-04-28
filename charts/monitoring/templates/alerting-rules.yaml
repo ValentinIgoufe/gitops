@@ -1,0 +1,31 @@
+{{- $left := "{{" -}}
+{{- $right := "}}" -}}
+
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: kubernetes-alerts
+  namespace: {{ .Values.global.monitoring.namespace }}
+  labels:
+    release: {{ .Release.Name }}
+spec:
+  groups:
+    - name: kubernetes.rules
+      rules:
+        - alert: PodCrashLooping
+          expr: rate(kube_pod_container_status_restarts_total[15m]) > 0
+          for: 5m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $left }} $labels.pod {{ $right }} redémarre fréquemment"
+            description: "Le pod {{ $left }} $labels.pod {{ $right }} dans {{ $left }} $labels.namespace {{ $right }} a redémarré {{ $left }} $value {{ $right }} fois."
+        
+        - alert: HighMemoryUsage
+          expr: (container_memory_usage_bytes / container_spec_memory_limit_bytes) > 0.9
+          for: 5m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Utilisation mémoire critique"
+            description: "Le conteneur {{ $left }} $labels.container {{ $right }} utilise plus de 90% de sa limite mémoire."
