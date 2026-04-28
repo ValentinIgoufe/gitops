@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://kubernetes.github.io/autoscaler'
     targetRevision: latest
-    chart: vpa
+    path: vertical-pod-autoscaler/deploy
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: kube-system
