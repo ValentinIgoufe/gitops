@@ -5,7 +5,7 @@
 > PPK = Initiation à k8s, ArgoCD et Terraform.
 
 ## Installation via Docker
-### ./minikube start --driver=docker --cni=calico --nodes 3
+### ./minikube start --driver=docker --cni=calico --nodes 2 --memory=6144
 
 # Control Plane OK ?
 ### ./minikube.exe kubectl -- get nodes
@@ -99,7 +99,7 @@
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
 
 # Admin ArgoCD
-### SlplTErwCcbf1XTb
+### FHp2p5ZrLUy-dCNO
 
 # EKS et Terraform
 ## https://www.periscop.tech/posts/20251127-terraform-kubernetes-eks-production/

@@ -9,6 +9,10 @@ spec:
     chart: longhorn
     repoURL: https://charts.longhorn.io
     targetRevision: 1.11.1
+    helm:
+      values: |
+        preUpgradeChecker:
+          jobEnabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: longhorn-system
@@ -18,3 +22,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - PrunePropagationPolicy=background
+      - RespectIgnoreDifferences=true
