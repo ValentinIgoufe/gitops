@@ -1,27 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-backend
+  name: monitoring-stack
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: '3'
 spec:
   project: default
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: charts/backend
+    path: charts/monitoring
     helm:
       valueFiles:
         - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: guestbook-backend
-  # https://oneuptime.com/blog/post/2026-02-26-deploy-kube-prometheus-stack-argocd/view
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true
       - ServerSideApply=true
+      - CreateNamespace=true

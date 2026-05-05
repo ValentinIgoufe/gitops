@@ -1,23 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: guestbook-frontend
+  name: applications-stack
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: '3'
 spec:
   project: default
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: charts/frontend
-    helm:
-      valueFiles:
-        - values.yaml
+    path: cluster-config/appofapps
+    directory:
+      include: 'applications/*.yaml'
+      recurse: false
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: guestbook-frontend
-  # https://oneuptime.com/blog/post/2026-02-26-deploy-kube-prometheus-stack-argocd/view
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true

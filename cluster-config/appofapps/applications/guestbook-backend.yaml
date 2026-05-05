@@ -1,17 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: guestbook-backend
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: cluster-config/appofapps
+    path: charts/backend
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    namespace: guestbook-backend
   syncPolicy:
     automated:
       prune: true

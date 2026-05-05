@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: monitoring-parent-stack
   namespace: argocd
 spec:
   project: default
@@ -9,6 +9,9 @@ spec:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
     path: cluster-config/appofapps
+    directory:
+      include: 'monitoring/*.yaml'
+      recurse: false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
