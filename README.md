@@ -101,6 +101,43 @@
 # Admin ArgoCD
 ### SlplTErwCcbf1XTb
 
+# EKS et Terraform
+## https://www.periscop.tech/posts/20251127-terraform-kubernetes-eks-production/
+
+# 1. Le Stockage (Persistent Volumes)
+Dans K8s, par défaut, si un Pod meurt, ses données meurent avec lui. Pour de la prod, c'est inenvisageable. Tu dois comprendre :
+
+PV / PVC (Persistent Volume Claims) : Comment on "réserve" 10 Go de disque.
+
+StorageClasses : Comment K8s demande automatiquement au Cloud (AWS, Azure, ou ton propre serveur) de créer le disque.
+
+CSI (Container Storage Interface) : Le standard qui permet à K8s de parler à n'importe quel disque.
+
+À tester : Installe Longhorn ou OpenEBS sur ton petit cluster, c'est du stockage Open Source génial.
+
+# 2. Le Service Mesh (La couche supérieure)
+C'est la suite logique après avoir maîtrisé le réseau de base.
+
+Istio ou Linkerd : Ça permet de sécuriser les communications entre tes Pods (mTLS) automatiquement, de gérer les "Retries" (réessayer si ça plante) et de voir tout le trafic en temps réel.
+
+C'est le graal du DevSecOps pour le principe du Zero Trust.
+
+# 3. L'Observabilité (Les yeux de l'admin)
+Maîtriser K8s sans savoir ce qu'il s'y passe, c'est piloter un avion les yeux bandés.
+
+Prometheus & Grafana : Pour les métriques (CPU, RAM, erreurs).
+
+Loki / Fluentbit : Pour centraliser les logs.
+
+Le plus : Apprendre à créer un Dashboard Grafana qui affiche l'état de santé de ton cluster.
+
+# 4. La Sécurité (Runtime Security)
+Toi qui aimes le SecOps, c'est là que tu vas t'éclater :
+
+Falco : C'est le "système d'alarme". Il te prévient en temps réel si quelqu'un essaie d'ouvrir un shell dans un Pod en prod ou de lire un fichier sensible.
+
+Trivy / Kyverno : Pour interdire le déploiement de Pods qui ont des failles de sécurité.
+
 Après Prometheus/Grafana et EKS/Terraform, la suite logique ce serait :
 Court terme (dans ta lancée)
 

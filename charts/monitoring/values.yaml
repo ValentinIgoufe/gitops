@@ -36,12 +36,13 @@ prometheusstack:
           memory: "2Gi"
           cpu: "1"
       storageSpec: {}
-        #volumeClaimTemplate:
-        #  spec:
-        #    accessModes: ["ReadWriteOnce"]
-        #    resources:
-        #      requests:
-        #        storage: 5Gi
+        volumeClaimTemplate:
+          spec:
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
   
@@ -49,9 +50,10 @@ prometheusstack:
     enabled: true
     alertmanagerSpec:
       storage: {}
-        #volumeClaimTemplate:
-        #  spec:
-        #    accessModes: ["ReadWriteOnce"]
-        #    resources:
-        #      requests:
-        #        storage: 10Gi
+        volumeClaimTemplate:
+          spec:
+            storageClassName: longhorn
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 5Gi
