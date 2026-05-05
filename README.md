@@ -101,6 +101,10 @@
 # Admin ArgoCD
 ### FHp2p5ZrLUy-dCNO
 
+# Longhorn
+## installer et activer open-iscsi
+
+
 # EKS et Terraform
 ## https://www.periscop.tech/posts/20251127-terraform-kubernetes-eks-production/
 
