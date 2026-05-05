@@ -99,9 +99,11 @@
 ### .\tools\minikube.exe kubectl -- rollout restart deployment guestbook-backend-deployment -n guestbook-backend
 
 # Admin ArgoCD
-### FHp2p5ZrLUy-dCNO
+### kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+### IADFs7XY4JmYIngo
 
 # Longhorn
+## ./tools/minikube ssh -n minikube "sudo apt-get update && sudo apt-get install -y open-iscsi && sudo systemctl enable --now iscsid"
 ## installer et activer open-iscsi
 
 
