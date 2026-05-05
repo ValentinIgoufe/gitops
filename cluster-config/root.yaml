@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
     path: cluster-config/appofapps
+    directory:
+      recurse: false
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd

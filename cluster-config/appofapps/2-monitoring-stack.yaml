@@ -8,10 +8,9 @@ spec:
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: cluster-config/appofapps
+    path: cluster-config/appofapps/monitoring
     directory:
-      include: 'monitoring/*.yaml'
-      recurse: false
+      recurse: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
