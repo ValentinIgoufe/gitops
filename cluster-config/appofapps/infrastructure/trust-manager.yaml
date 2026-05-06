@@ -9,10 +9,6 @@ spec:
     chart: trust-manager
     repoURL: https://charts.jetstack.io
     targetRevision: v0.22.1
-    helm:
-      parameters:
-        - name: installCRDs
-          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
