@@ -100,7 +100,7 @@
 
 # Admin ArgoCD
 ### kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
-### 6H3mSTKMfIGr9TJs
+### xZ-fk24IpVriBbK-
 
 # Longhorn
 ## ./tools/minikube ssh -n minikube "sudo apt-get update && sudo apt-get install -y open-iscsi && sudo systemctl enable --now iscsid"
