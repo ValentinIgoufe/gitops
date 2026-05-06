@@ -1,4 +1,0 @@
-resources:
-  - ../linkerd-pki/   
-  - ../linkerd-crds/  
-  - ../linkerd-control/

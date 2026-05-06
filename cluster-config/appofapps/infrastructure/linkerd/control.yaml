@@ -1,21 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: parent-linkerd
+  name: linkerd-control
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
+    path: cluster-config/appofapps/infrastructure/linkerd/control
     targetRevision: HEAD
-    path: cluster-config/appofapps/infrastructure/linkerd
-    directory:
-      recurse: false
   destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: argocd
+    server: https://kubernetes.default.svc
+    namespace: linkerd
   syncPolicy:
     automated:
       prune: true
