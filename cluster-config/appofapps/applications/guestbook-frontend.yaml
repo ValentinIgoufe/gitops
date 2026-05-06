@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: guestbook-frontend
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
