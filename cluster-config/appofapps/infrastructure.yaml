@@ -1,26 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: monitoring-stack
+  name: parent-infrastructure
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/ValentinIgoufe/gitops
     targetRevision: HEAD
-    path: charts/monitoring
-    helm:
-      valueFiles:
-        - values.yaml
+    path: cluster-config/appofapps/infrastructure
+    directory:
+      recurse: false
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: monitoring
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-      - ServerSideApply=true
       - CreateNamespace=true
+      - ServerSideApply=true
