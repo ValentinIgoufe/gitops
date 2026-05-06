@@ -1,0 +1,7 @@
+apiVersion: v2
+name: linkerd-crds-wrapper
+version: 1.0.0
+dependencies:
+  - name: linkerd-crds
+    version: 1.8.0
+    repository: https://helm.linkerd.io/stable

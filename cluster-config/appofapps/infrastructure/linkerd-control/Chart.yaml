@@ -1,0 +1,7 @@
+apiVersion: v2
+name: linkerd-control-wrapper
+version: 1.0.0
+dependencies:
+  - name: linkerd-control-plane
+    version: 1.16.11
+    repository: https://helm.linkerd.io/stable

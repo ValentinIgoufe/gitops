@@ -1,0 +1,16 @@
+linkerd-control-plane:
+  identity:
+    issuer:
+      scheme: kubernetes.io/tls
+    # On dit à Linkerd d'utiliser le secret généré par Cert-Manager
+    externalCA: true 
+  
+  # Pour que ça tourne sur ton Minikube sans tout faire ramer
+  proxy:
+    resources:
+      cpu:
+        limit: 100m
+        request: 10m
+      memory:
+        limit: 128Mi
+        request: 64Mi
