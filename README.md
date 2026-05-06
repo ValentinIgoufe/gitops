@@ -106,6 +106,9 @@
 ## ./tools/minikube ssh -n minikube "sudo apt-get update && sudo apt-get install -y open-iscsi && sudo systemctl enable --now iscsid"
 ## installer et activer open-iscsi
 
+# Service Mesh avec Linkerd 
+## https://techblog.rtbhouse.com/linkerd-gitops-deployment-with-argocd-and-cert-manager-automatic-certificate-rotation/
+
 
 # EKS et Terraform
 ## https://www.periscop.tech/posts/20251127-terraform-kubernetes-eks-production/
